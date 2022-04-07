@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+rss_reader.py
+setup.py
+app/__init__.py
+app/__main__.py
+app/application.py
+elyorbeks_rss_reader.egg-info/PKG-INFO
+elyorbeks_rss_reader.egg-info/SOURCES.txt
+elyorbeks_rss_reader.egg-info/dependency_links.txt
+elyorbeks_rss_reader.egg-info/entry_points.txt
+elyorbeks_rss_reader.egg-info/requires.txt
+elyorbeks_rss_reader.egg-info/top_level.txt

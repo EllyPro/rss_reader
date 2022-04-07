@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        rss_reader=rss_reader:main
+    

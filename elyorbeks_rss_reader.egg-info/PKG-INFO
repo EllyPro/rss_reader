@@ -1,3 +1,18 @@
+Metadata-Version: 2.1
+Name: elyorbeks-rss-reader
+Version: 0.0.1
+Summary: This cmd tool is intended to read rss-feed from realpython.com
+Home-page: https://github.com/EllyPro
+Author: Elyorbek Hamroyev
+Author-email: pro100elly@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Introduction to Python. Final task.
 You are proposed to implement Python RSS-reader using  **python 3.9** - Ideally, but actually, any version above **python 3.6** is fine.
 
@@ -87,3 +102,5 @@ as well as this:
 ```
 > rss_reader ...
 ```
+
+
