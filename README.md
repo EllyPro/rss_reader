@@ -1,40 +1,24 @@
-# Introduction to Python. Final task.
-You are proposed to implement Python RSS-reader using  **python 3.9** - Ideally, but actually, any version above **python 3.6** is fine.
+# Python RSS-Feed-Parser
+RSS-Feed-Parser is the lightweight free command line tool for parsing rss feeds
 
-The task consists of few iterations. Do not start new iteration if the previous one is not implemented yet. **Usage of feedparser lib is prohibited.**
+- version 3.0.0
+- created by Elyorbek Hamroyev
 
-## Common requirements.
-* Requires python
-* Requires pip
-## [Iteration 1] One-shot command-line RSS reader.
-RSS reader should be a command-line utility which receives [RSS](wikipedia.org/wiki/RSS) URL and prints results in human-readable format.
+## Requirements
+* Requires Python 3.5 >=
+* Requires Pip
 
-You are free to choose format of the news console output. The textbox below provides an example of how it can be implemented:
-
-```shell
-$ rss_reader.py "https://news.yahoo.com/rss/" --limit 1
-
-Feed: Yahoo News - Latest News & Headlines
-
-Title: Nestor heads into Georgia after tornados damage Florida
-Date: Sun, 20 Oct 2019 04:21:44 +0300
-Link: https://news.yahoo.com/wet-weekend-tropical-storm-warnings-131131925.html
-
-[image 2: Nestor heads into Georgia after tornados damage Florida][2]Nestor raced across Georgia as a post-tropical cyclone late Saturday, hours after the former tropical storm spawned a tornado that damaged
-homes and a school in central Florida while sparing areas of the Florida Panhandle devastated one year earlier by Hurricane Michael. The storm made landfall Saturday on St. Vincent Island, a nature preserve
-off Florida's northern Gulf Coast in a lightly populated area of the state, the National Hurricane Center said. Nestor was expected to bring 1 to 3 inches of rain to drought-stricken inland areas on its
-march across a swath of the U.S. Southeast.
-
-
-Links:
-[1]: https://news.yahoo.com/wet-weekend-tropical-storm-warnings-131131925.html (link)
-[2]: http://l2.yimg.com/uu/api/res/1.2/Liyq2kH4HqlYHaS5BmZWpw--/YXBwaWQ9eXRhY2h5b247aD04Njt3PTEzMDs-/https://media.zenfs.com/en/ap.org/5ecc06358726cabef94585f99050f4f0 (image)
-
+## Installation
+You can easily install cmd tool to your computer by typing this command
+```sh
+pip install rss-reader-ellypro==4.0.0
 ```
 
-Utility should provide the following interface:
+## Usage
+**Note:** This cmd tool is only parsing rss feed from https://realpython.com/atom.xml
 ```shell
-usage: rss_reader.py [-h] [--version] [--json] [--verbose] [--limit LIMIT]
+usage: rss_reader [--help] [--version] [--json] [--verbose] [--limit LIMIT]
+                    [--dates DATE] [--to-pdf PATH] [--to-html PATH]
                      source
 
 Pure Python command-line RSS reader.
@@ -43,47 +27,77 @@ positional arguments:
   source         RSS URL
 
 optional arguments:
-  -h, --help     show this help message and exit
-  --version      Print version info
-  --json         Print result as JSON in stdout
-  --verbose      Outputs verbose status messages
-  --limit LIMIT  Limit news topics if this parameter provided
-
+  -h, --help          show this help message and exit
+  --version           Print version info
+  --json              Print result as JSON in stdout
+  --verbose           Outputs verbose status messages
+  --limit LIMIT       Limit news topics if this parameter provided
+  --dates DATES       Filters rss feed with specified date
+  --to-pdf PATH       Saves rss feed into specified folder in pdf
+  --to-html PATH      Saves rss feed into specified folder in html
 ```
-
-In case of using `--json` argument your utility should convert the news into [JSON](https://en.wikipedia.org/wiki/JSON) format.
-You should come up with the JSON structure on you own and describe it in the README.md file for your repository or in a separate documentation file.
-
-
-
-With the argument `--verbose` your program should print all logs in stdout.
-
-### Task clarification (I)
-
-1) If `--version` option is specified app should _just print its version_ and stop.
-2) User should be able to use `--version` option without specifying RSS URL. For example:
+**Example**
+```sh
+rss_reader https://realpython.com/atom.xml --limit 3
 ```
-> python rss_reader.py --version
-"Version 1.4"
+Will give you output something like this:
+```sh
+Title : Python Virtual Environments: A Primer 
+
+ Link : https://realpython.com/python-virtual-environments-a-primer/
+
+ Date : 2022-04-13T14:00:00+00:00
+
+ Summary : In this tutorial, you'll learn how to use a Python virtual environment to manage your Python projects. You'll also dive deep into the structure of virtu
+al environments built using the venv module, as well as the reasoning behind using virtual environments.
+
+-----------------
+Title : Exploring Keywords in Python
+
+ Link : https://realpython.com/courses/exploring-keywords-in-python/
+
+ Date : 2022-04-12T14:00:00+00:00
+
+ Summary : Python keywords make up the fundamental building blocks of any Python program. In this video course, you'll learn the basic syntax and usage for each of
+ Python's thirty-five keywords so you can write more efficient and readable code.
+
+-----------------
+Title : Python News: What's New From March 2022?
+
+ Link : https://realpython.com/python-news-march-2022/
+
+ Date : 2022-04-11T14:00:00+00:00
+
+ Summary : In March 2022, Python 3.11.0a6 was released, PEPs got a new website, PEP 594 about removing dead batteries from the standard library was accepted, and E
+uroPython 2022 issued its CFP and started ticket sales. In this article, you'll get more details on all this cool Python news.
+
+-----------------
 ```
+>And you can check all other optional flags(json,version,help,limit,verbose,dates,to-pdf,to-html) by yourself
+## Implementation Document
+**This part of README will be filled after mentors code approval**
+## License
+MIT
+MIT License
 
-## [Iteration 2] Distribution.
+Copyright (c) 2022 Elyorbek Hamroyev
 
-* Utility should be wrapped into distribution package with `setuptools`.
-* This package should export CLI utility named `rss-reader`.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
-### Task clarification (II)
- 
-1) User should be able to run your application _both_ with and without installation of CLI utility,
-meaning that this should work:
-
-```
-> python rss_reader.py ...
-```
-
-as well as this:  
-
-```
-> rss_reader ...
-```
